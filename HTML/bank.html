@@ -29,6 +29,8 @@
     </header>
     <main>
       <section class="max-w-screen-lg mx-auto my-8 rounded-lg bg-red-200 p-9">
+        <h2 class="text-3xl font-semibold">Welcome to your website</h2>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-6 text-yellow-50">
           <div class="sm: p-5 md:p-9 order-2 rounded-lg bg-violet-400">
             <h3 class="text-3xl mb-3">Deposit</h3>
@@ -36,7 +38,7 @@
           </div>
           <div class="bg-lime-500 order-3 sm: p-5 md:p-9 rounded-lg">
             <h3 class="text-3xl mb-3">Withdraw</h3>
-            <h2 class="text-4xl">$00</h2>
+            <h2 class="text-4xl">$<span id="preWithdraw">00</span></h2>
           </div>
           <div class="bg-yellow-500 order-1 sm: p-5 md:p-9 rounded-lg">
             <h3 class="text-3xl mb-3">Blance</h3>
@@ -87,37 +89,8 @@
         </div>
       </section>
     </main>
-    <script>
-      // step 1
-      document
-        .getElementById("btn-deposit")
-        .addEventListener("click", function () {
-          // step 2 : Input fild to add new deposit Amount
-          const depositFild = document.getElementById("depositFild");
-          const depositStringAmount = depositFild.value;
-          const depositAmount = parseFloat(depositStringAmount);
-
-          // step 3 : Previous deposit Amount
-          const blanceFild = document.getElementById("blanceFild");
-          const blanceSrignAmount = blanceFild.innerText;
-          const blanceAmount = parseFloat(blanceSrignAmount);
-
-          // step 4 : total Blance Amount
-          const totalFild = document.getElementById("totalFild");
-          const totalAmountFild = parseFloat(totalFild.innerText);
-          console.log(typeof totalStringFild);
-
-          //step 5
-          if (!isNaN(depositAmount) && depositAmount >= 0) {
-            //step 6
-            blanceFild.innerText = depositAmount + blanceAmount;
-            totalFild.innerText = totalAmountFild + depositAmount;
-          } else {
-            alert("!! Please provide a  number");
-          }
-          // step 7 : make the input Fild empty
-          depositFild.value = "";
-        });
-    </script>
+    <script src="/JavaSctipt/deposit.js"></script>
+    <script src="/JavaSctipt/withdraw.js"></script>
+    <script></script>
   </body>
 </html>
