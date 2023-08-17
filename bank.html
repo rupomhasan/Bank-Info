@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inside Bank</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+  </head>
+  <body class="m-3">
+    <header>
+      <h1 class="text-5xl text-center mt-6 font-medium">
+        <span class="font-semibold text-violet-500"
+          ><span class="font-extrabold text-red-500">F</span>uture
+          <span class="font-extrabold text-red-500">B</span>ank!!</span
+        >
+      </h1>
+    </header>
+    <main>
+      <section class="max-w-screen-lg mx-auto my-8 rounded-lg bg-red-200 p-9">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-6 text-yellow-50">
+          <div class="sm: p-5 md:p-9 order-2 rounded-lg bg-violet-400">
+            <h3 class="text-3xl mb-3">Deposit</h3>
+            <h2 class="text-4xl">$<span id="blanceFild">00</span></h2>
+          </div>
+          <div class="bg-lime-500 order-3 sm: p-5 md:p-9 rounded-lg">
+            <h3 class="text-3xl mb-3">Withdraw</h3>
+            <h2 class="text-4xl">$00</h2>
+          </div>
+          <div class="bg-yellow-500 order-1 sm: p-5 md:p-9 rounded-lg">
+            <h3 class="text-3xl mb-3">Blance</h3>
+            <h2 class="text-4xl">$<span id="totalFild">1240</span></h2>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-7">
+          <div class="bg-orange-400 p-8 rounded-xl">
+            <h3 class="text-xl text-white font-semibold mb-2">
+              Please Deposit
+            </h3>
+            <div>
+              <input
+                class="block mb-3 px-4 w-[85%] rounded"
+                type="text"
+                name=""
+                id="depositFild"
+                placeholder="$ Amount you want to deposit"
+              />
+              <button
+                id="btn-deposit"
+                class="btn btn-outline text-yellow-50 bg-violet-500 btn-sm rounded-md border-none hover:bg-violet-700"
+              >
+                deposit
+              </button>
+            </div>
+          </div>
+          <div class="bg-sky-400 p-8 rounded-xl">
+            <h3 class="text-xl text-white font-semibold mb-2">
+              Please Withdraw
+            </h3>
+            <div>
+              <input
+                class="block mb-3 px-4 w-[85%] rounded"
+                type="text"
+                name=""
+                id="withdrawFild"
+                placeholder="$ Amount you want to withdraw"
+              />
+              <button
+                id="btn-withdraw"
+                class="btn btn-outline text-yellow-50 bg-violet-500 btn-sm rounded-md border-none hover:bg-violet-700"
+              >
+                Withdraw
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      // step 1
+      document
+        .getElementById("btn-deposit")
+        .addEventListener("click", function () {
+          // step 2 : Input fild to add new deposit Amount
+          const depositFild = document.getElementById("depositFild");
+          const depositStringAmount = depositFild.value;
+          const depositAmount = parseFloat(depositStringAmount);
+
+          // step 3 : Previous deposit Amount
+          const blanceFild = document.getElementById("blanceFild");
+          const blanceSrignAmount = blanceFild.innerText;
+          const blanceAmount = parseFloat(blanceSrignAmount);
+
+          // step 4 : total Blance Amount
+          const totalFild = document.getElementById("totalFild");
+          const totalAmountFild = parseFloat(totalFild.innerText);
+          console.log(typeof totalStringFild);
+
+          //step 5
+          if (!isNaN(depositAmount) && depositAmount >= 0) {
+            //step 6
+            blanceFild.innerText = depositAmount + blanceAmount;
+            totalFild.innerText = totalAmountFild + depositAmount;
+          } else {
+            alert("!! Please provide a  number");
+          }
+          // step 7 : make the input Fild empty
+          depositFild.value = "";
+        });
+    </script>
+  </body>
+</html>

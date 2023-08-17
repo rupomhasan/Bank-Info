@@ -30,15 +30,18 @@
     </header>
     <main>
       <section
-        class="bg-sky-200 max-w-screen-md mx-auto w-9/12 mt-12 p-9 rounded-lg"
+        class="bg-violet-200 max-w-screen-md mx-auto md:w-9/12 mt-12 sm: p-5 md:p-9 rounded-lg"
       >
-        <h3 class="text-3xl mb-4">Please Login</h3>
+        <h3 class="text-3xl mb-4">
+          <span class="text-red-500 font-semibold">P</span>lease
+          <span class="text-red-500 font-semibold">L</span>ogin
+        </h3>
         <div>
           <input
             class="block mb-3 px-3 rounded w-9/12"
             type="email"
             name=""
-            id=""
+            id="inputFild"
             placeholder="Your Email Please"
           />
           <input
@@ -46,15 +49,34 @@
             type="password"
             name=""
             placeholder="Your Password"
-            id=""
+            id="emailPassword"
           />
           <button
-            class="btn btn-outline text-yellow-50 bg-emerald-400 btn-sm rounded-md border-none hover:bg-emerald-600"
+            id="btn-submit"
+            class="btn btn-outline text-yellow-50 bg-violet-500 btn-sm rounded-md border-none hover:bg-violet-700"
           >
             Submit
           </button>
         </div>
       </section>
     </main>
+
+    <script>
+      document
+        .getElementById("btn-submit")
+        .addEventListener("click", function () {
+          const emailFild = document.getElementById("inputFild");
+          const email = emailFild.value;
+
+          const passwordFild = document.getElementById("emailPassword");
+          const password = passwordFild.value;
+
+          if (email === "rupom.hasan607299@gmail.com" && password === "12345") {
+            window.location.assign("http://127.0.0.1:5500/bank.html");
+          } else {
+            alert("Please provide right password && email  !!.");
+          }
+        });
+    </script>
   </body>
 </html>
